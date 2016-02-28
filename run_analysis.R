@@ -4,10 +4,10 @@ library(dplyr)
 library(reshape2)
 
 #read relevant files
-setwd("C:/Users/JMO42/Desktop/Data cleaning/Final project")
+
 Names_features <- read.table("features.txt")
 activities <- read.table("activity_labels.txt", header = FALSE)
-setwd("C:/Users/JMO42/Desktop/Data cleaning/Final project/test")
+
 subject<- read.table("subject_test.txt")
 X <- read.table("X_test.txt", sep = "")
 Y<- read.table("y_test.txt")

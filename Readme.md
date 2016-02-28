@@ -8,4 +8,4 @@ You should create one R script called run_analysis.R that does the following.
 
 run_analysis.R follows the steps above to achieve the aforementioned objective. 
 
-To apply it, it is necessary to download the data set and put it on the working directory. Otherwise, the paths need to be set withint the script
+To apply it, it is necessary to download the data set and put all the relevant files in one common folder on your working directory. Otherwise, the paths need to be specified within the script itself.
