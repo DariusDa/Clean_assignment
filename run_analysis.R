@@ -11,7 +11,7 @@ activities <- read.table("activity_labels.txt", header = FALSE)
 subject<- read.table("subject_test.txt")
 X <- read.table("X_test.txt", sep = "")
 Y<- read.table("y_test.txt")
-setwd("C:/Users/JMO42/Desktop/Data cleaning/Final project/train")
+
 subject_train<- read.table("subject_train.txt")
 X_train<- read.table("X_train.txt")
 Y_train<- read.table("y_train.txt")
@@ -53,17 +53,16 @@ names(final_data)<-gsub("Acc", "Accelerometer", names(final_data))
 names(final_data)<-gsub("Gyro", "Gyroscope", names(final_data))
 names(final_data)<-gsub("BodyBody", "Body", names(final_data))
 names(final_data)<-gsub("Mag", "Magnitude", names(final_data))
+names(final_data)<-gsub("^t", "time", names(final_data))
+names(final_data)<-gsub("BodyBody", "Body", names(final_data))
 names(final_data)<-gsub("-mean()", "Mean", names(final_data), ignore.case = TRUE)
-names(final_data)<-gsub("-std()", "STD", names(final_data), ignore.case = TRUE)
+names(final_data)<-gsub("-std()", "Standard Dev", names(final_data), ignore.case = TRUE)
 names(final_data)<-gsub("-freq()", "Frequency", names(final_data), ignore.case = TRUE)
-
-
-
-
 final_data$Subject <- as.factor(final_data$Subject)
 final_data <- data.table(final_data)
-
+#final set
 tidy_set <- aggregate(. ~Subject + Activity, final_data, mean)
 tidy_set <- tidy_set[order(tidy_set$Subject,tidy_set$Activity),]
 write.table(tidy_set, file = "Tidy.txt", row.names = FALSE)
 
+View(tidy_set)
